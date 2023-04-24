@@ -26,7 +26,7 @@ const ItemCard = ({ id, title, price, image }: ItemCardProps) => {
                      {title}
                   </h3>
                )}
-               <p className="font-sans text-lg font-bold">$ {price},00</p>
+               <p className="font-sans text-lg font-bold">$ {price}.00</p>
             </div>
          </li>
       </Link>

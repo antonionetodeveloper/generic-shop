@@ -1,4 +1,4 @@
-import ItemCard from "@/app/components/ui/itemCard"
+import ItemCard from "@/app/(home)/components/itemCard"
 
 const ItemList = async () => {
    const response = await fetch(
@@ -6,8 +6,7 @@ const ItemList = async () => {
 
       {
          headers: {
-            Authorization:
-               "Bearer sk_test_51MzUDJA2HJFEHW7s2NwGrsnzigqlaUyPxkRjoO4yXN4xFRO0fNRBQoBDhCWRgIYPkwWHAoq98i86Vyzc3la8NGyX00caRkpxqI",
+            Authorization: `Bearer ${process.env.STRIPE_API_KEY}`,
          },
 
          cache: "no-store",
