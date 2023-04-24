@@ -2,7 +2,6 @@ import "@/styles/globals.css"
 
 import { Archivo_Black } from "next/font/google"
 import { Crete_Round } from "next/font/google"
-
 import Header from "./components/layout/header"
 
 const Titles = Archivo_Black({
@@ -24,11 +23,11 @@ export const metadata = {
    description: "Generic Shop is a generic shop.",
 }
 
-interface LayoutProps {
+interface Props {
    children: React.ReactNode
 }
 
-export default function RootLayout({ children }: LayoutProps) {
+export default function RootLayout({ children }: Props) {
    return (
       <html lang="en" className={`${Titles.variable} ${Texts.variable}`}>
          <body>

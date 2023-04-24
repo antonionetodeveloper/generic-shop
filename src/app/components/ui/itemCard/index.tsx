@@ -2,11 +2,10 @@ import Image from "next/image"
 import { ItemCardProps } from "@/types/itemCard"
 import Link from "next/link"
 
-const ItemCard = ({ title, price, image }: ItemCardProps) => {
+const ItemCard = ({ id, title, price, image }: ItemCardProps) => {
    return (
       <Link
-         /* href={`/product/${title}`} */
-         href="/"
+         href={`/product/${id}`}
          className="w-full h-auto flex justify-center items-center p-5 shadow-md bg-white rounded-md hover:cursor-pointer"
       >
          <li className="flex flex-col h-full justify-around items-center">
@@ -27,7 +26,7 @@ const ItemCard = ({ title, price, image }: ItemCardProps) => {
                      {title}
                   </h3>
                )}
-               <p className="font-sans text-lg font-bold">${price}</p>
+               <p className="font-sans text-lg font-bold">$ {price},00</p>
             </div>
          </li>
       </Link>
