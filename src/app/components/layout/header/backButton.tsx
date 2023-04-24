@@ -11,7 +11,7 @@ const BackButton = () => {
       <>
          {pathname !== "/" ? (
             <button
-               onClick={() => router.back()}
+               onClick={() => router.push("/")}
                className="hover:bg-gray-300 duration-150 rounded-full p-3 absolute"
             >
                <svg
