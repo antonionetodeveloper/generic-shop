@@ -6,7 +6,7 @@ const ItemCard = ({ id, title, price, image }: ItemCardProps) => {
    return (
       <Link
          href={`/product/${id}`}
-         className="w-full h-auto flex justify-center items-center p-5 shadow-md bg-white rounded-md hover:cursor-pointer"
+         className="w-full h-full flex justify-center items-center p-5 shadow-md bg-white rounded-md hover:cursor-pointer"
       >
          <li className="flex flex-col h-full justify-around items-center">
             <Image
