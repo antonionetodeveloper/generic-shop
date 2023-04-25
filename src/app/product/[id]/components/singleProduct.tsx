@@ -12,16 +12,19 @@ const SingleProduct = async ({ id }: { id: string }) => {
    const product = await response.json()
 
    return (
-      <section className="bg-white w-11/12 flex m-auto mt-5 rounded-lg p-5 shadow-md ">
+      <section className="bg-white w-11/12 md:flex m-auto mt-5 rounded-lg p-5 shadow-md ">
          <Image
             src={product.images[0]}
             alt={product.name}
-            width={400}
+            width={500}
             height={200}
             quality={100}
-            style={{ height: "60vh" }}
+            style={{
+               maxHeight: "60vh",
+               objectFit: "cover",
+            }}
          />
-         <div className="flex flex-col justify-center gap-10 w-4/5">
+         <div className="flex flex-col justify-center gap-10 md:w-4/5">
             <div>
                <h2 className="text-4xl text-center">{product.name}</h2>
                <p className="font-sans font-bold text-center">
@@ -29,7 +32,7 @@ const SingleProduct = async ({ id }: { id: string }) => {
                </p>
             </div>
             <div className="flex flex-col items-center gap-5">
-               <div className="flex gap-2">
+               <div className="flex md:flex-row flex-col md:gap-2 gap-5">
                   <Button variant="primary" onClick={console.log("teste")}>
                      Comprar Agora
                   </Button>
@@ -37,7 +40,9 @@ const SingleProduct = async ({ id }: { id: string }) => {
                      Adicionar ao carrinho
                   </Button>
                </div>
-               <p className="text-justify w-2/4">{product.description}</p>
+               <p className="text-justify md:w-2/4 md:p-0 p-5">
+                  {product.description}
+               </p>
             </div>
          </div>
       </section>
