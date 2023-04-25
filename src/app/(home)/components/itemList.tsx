@@ -6,7 +6,7 @@ const ItemList = async () => {
 
       {
          headers: {
-            Authorization: `Bearer ${process.env.STRIPE_API_KEY}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_API_KEY}`,
          },
 
          cache: "no-store",
