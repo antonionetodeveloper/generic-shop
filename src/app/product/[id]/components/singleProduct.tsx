@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import Button from "@/app/components/ui/buttons/genericButton"
+import ButtonSection from "./buttonSection"
 
 const SingleProduct = async ({ id }: { id: string }) => {
    const response = await fetch(`https://api.stripe.com/v1/products/${id}`, {
@@ -32,14 +32,7 @@ const SingleProduct = async ({ id }: { id: string }) => {
                </p>
             </div>
             <div className="flex flex-col items-center gap-5">
-               <div className="flex md:flex-row flex-col md:gap-2 gap-5">
-                  <Button variant="primary" onClick={console.log("teste")}>
-                     Comprar Agora
-                  </Button>
-                  <Button variant="secondary" onClick={console.log("teste")}>
-                     Adicionar ao carrinho
-                  </Button>
-               </div>
+               <ButtonSection idProduct={id} productName={product.name} />
                <p className="text-justify md:w-2/4 md:p-0 p-5">
                   {product.description}
                </p>

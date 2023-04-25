@@ -1,12 +1,19 @@
-"use client"
-
 import { ButtonProps } from "@/types/button"
+import Spinner from "../loading/spinner"
 
-const Button = ({ children, onClick, disable, variant }: ButtonProps) => {
+const Button = ({
+   children,
+   onClick,
+   disable,
+   variant,
+   isLoading,
+}: ButtonProps) => {
    return (
       <button
          type="button"
-         onClick={() => onClick}
+         onClick={() => {
+            onClick()
+         }}
          className={`${disable ? "cursor-not-allowed" : "pointer"} ${
             (variant === "primary" &&
                "bg-gray-800 hover:bg-gray-900 text-white") ||
@@ -19,7 +26,7 @@ const Button = ({ children, onClick, disable, variant }: ButtonProps) => {
          } 
          font-sans font-bold rounded-lg text-lg px-5 py-2 duration-150 shadow-md`}
       >
-         {children}
+         {isLoading ? <Spinner /> : children}
       </button>
    )
 }
