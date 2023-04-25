@@ -8,8 +8,7 @@ const ItemList = async () => {
          headers: {
             Authorization: `Bearer ${process.env.STRIPE_API_KEY}`,
          },
-
-         cache: "no-store",
+         next: { revalidate: 60 },
       }
    )
    const itemsData = await response.json()
