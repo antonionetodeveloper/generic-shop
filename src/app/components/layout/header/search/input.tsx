@@ -9,9 +9,9 @@ const Input = ({ products }: InputProps) => {
    const [search, setSearch] = useState<string>("")
    const filteredProducts =
       search.length > 0
-         ? products.filter((product) =>
-              product.name.toLowerCase().includes(search)
-           ).slice(0, 5)
+         ? products
+              .filter((product) => product.name.toLowerCase().includes(search))
+              .slice(0, 5)
          : []
 
    return (
@@ -47,7 +47,7 @@ const Item = ({ id, name, price, setSearch }: SingleProductProps) => {
    return (
       <li onClick={() => setSearch("")}>
          <Link href={`/product/${id}`}>
-            <div className="bg-slate-50 hover:bg-slate-200 duration-150 cursor-pointer flex justify-between p-3 rounded">
+            <div className="bg-slate-50 hover:bg-slate-200 duration-150 cursor-pointer flex justify-between p-3 rounded relative z-30">
                <div>
                   <p>{name}</p>
                   <p>{price}</p>

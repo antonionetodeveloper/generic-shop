@@ -20,7 +20,7 @@ const SingleProduct = async ({ id }: { id: string }) => {
             height={200}
             quality={100}
             style={{
-               maxHeight: "60vh",
+               height: "60vh",
                objectFit: "cover",
             }}
          />
