@@ -3,7 +3,7 @@ import Image from "next/image"
 const SingleProduct = async ({ id }: { id: string }) => {
    const response = await fetch(`https://api.stripe.com/v1/products/${id}`, {
       headers: {
-         Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_API_KEY}`,
+         Authorization: `Bearer ${process.env.STRIPE_API_KEY}`,
       },
       next: { revalidate: 60 },
    })
