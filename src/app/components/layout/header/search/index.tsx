@@ -1,4 +1,17 @@
-const Search = () => {
+import Input from "./input"
+
+const Search = async () => {
+   const response = await fetch(
+      "https://api.stripe.com/v1/products?active=true",
+      {
+         headers: {
+            Authorization: `Bearer ${process.env.STRIPE_API_KEY}`,
+         },
+         next: { revalidate: 60 },
+      }
+   )
+   const products = await response.json()
+
    return (
       <div className="flex w-full md:w-3/5 lg:w-2/5 flex-col m-auto justify-center relative">
          <div className="pointer-events-none absolute left-2 z-10">
@@ -17,10 +30,7 @@ const Search = () => {
                />
             </svg>
          </div>
-         <input
-            className="flex relative w-full bg-white pl-12 p-2 rounded-xl duration-150 focus:outline-none focus:shadow-md"
-            placeholder="Enter product name for search ..."
-         />
+         <Input products={products?.data} />
       </div>
    )
 }

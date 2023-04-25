@@ -8,6 +8,7 @@ export default function Header() {
          <BackButton />
          <div className="flex flex-col justify-center gap-8">
             <Logo />
+            {/* @ts-expect-error - Async Component */}
             <Search />
          </div>
       </header>
