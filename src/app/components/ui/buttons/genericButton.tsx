@@ -11,7 +11,7 @@ const Button = ({ children, onClick, disable, variant }: ButtonProps) => {
             (variant === "primary" &&
                "bg-gray-800 hover:bg-gray-900 text-white") ||
             (variant === "secondary" &&
-               "bg-white hover:bg-slate-50 text-black") ||
+               "bg-white hover:bg-slate-200 text-black") ||
             (variant === "danger" &&
                "bg-red-500 hover:bg-red-600 text-white") ||
             (variant === "success" &&
