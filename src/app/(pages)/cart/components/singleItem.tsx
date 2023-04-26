@@ -18,17 +18,18 @@ const SingleItem = async ({
    const product: ProductCartProps = await response.json()
 
    return (
-      <div>
-         <div>
+      <div className="bg-white w-11/12 md:w-4/5 flex justify-between m-auto rounded-xl shadow-md my-5">
+         <div className="flex">
             <Image
                src={product?.images[0]}
                alt={`imagem de ${product.name}`}
                width={100}
                height={100}
+               className="flex-1 rounded-l-lg"
             />
-            <div>
-               <p>{product.name}</p>
-               <p>R$ {product.metadata?.price},00</p>
+            <div className="flex flex-col justify-center ml-2 md:ml-6">
+               <h4 className="text-lg md:text-2xl">{product.name}</h4>
+               <p className="font-sans font-semibold">R$ {product.metadata?.price},00</p>
             </div>
          </div>
          <ButtonSection

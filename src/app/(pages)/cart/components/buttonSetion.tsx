@@ -14,7 +14,6 @@ const ButtonSection = ({
 
    if (quantity < 1) {
       destroyCookie(null, itemName)
-      console.log("deletado - ", itemName)
    }
 
    if (quantity >= 1) {
@@ -24,26 +23,22 @@ const ButtonSection = ({
       })
    }
 
-   console.log({
-      itemName,
-      idProduct,
-      quantity,
-   })
-
    return (
-      <div>
+      <div className="p-2 md:p-4 flex items-center">
          {quantity > 0 ? (
-            <>
-               <PlusButton setQuantity={setQuantity} />
-               <p>{quantity}</p>
-               <MinusButton setQuantity={setQuantity} />
-            </>
+            <div className="flex items-center">
+               <p className="font-bold p-3 text-2xl">{quantity}</p>
+               <div className="flex flex-col gap-1">
+                  <PlusButton setQuantity={setQuantity} />
+                  <MinusButton setQuantity={setQuantity} />
+               </div>
+            </div>
          ) : (
-            <>
+            <div className="flex justify-center items-center max-w-sm">
                <Button variant="danger" onClick={() => {}}>
                   Item removido
                </Button>
-            </>
+            </div>
          )}
       </div>
    )
