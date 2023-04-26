@@ -5,10 +5,14 @@ const ItemList = ({ list }: { list: Array<object> }) => {
       <>
          <ul>
             {list.map((item: any) => {
+               const product = JSON.parse(item.value)
                return (
                   <>
                      {/* @ts-expect-error - Async Component */}
-                     <SingleItem id={item.value} />
+                     <SingleItem
+                        id={product.idProduct}
+                        quantity={parseInt(product.quantity)}
+                     />
                   </>
                )
             })}

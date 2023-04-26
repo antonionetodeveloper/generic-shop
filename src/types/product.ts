@@ -11,10 +11,17 @@ export interface SingleProductProps {
    name?: string
    price?: number
    description?: string
-   image?: string
+   images?: string
    category?: string
    metadata?: {
       price: string
    }
    setSearch?: any
+}
+
+export interface ProductCartProps {
+   id: string
+   name: string
+   images: Array<string>
+   metadata: { price: string }
 }

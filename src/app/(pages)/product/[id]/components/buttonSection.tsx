@@ -21,10 +21,18 @@ const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
    }, [productName])
 
    const handleAddToCart = () => {
-      setCookie(null, productName, idProduct, {
-         maxAge: 24 * 60 * 60, // 1 day
-         path: "/",
-      })
+      setCookie(
+         null,
+         productName,
+         JSON.stringify({
+            idProduct,
+            quantity: 1,
+         }),
+         {
+            maxAge: 24 * 60 * 60, // 1 day
+            path: "/",
+         }
+      )
       router.push("/cart")
    }
 
