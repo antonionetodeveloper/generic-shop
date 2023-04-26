@@ -2,7 +2,7 @@ const ItemListSkeleton = () => {
    return (
       <section className="mt-10 p-10">
          <ul className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 items-center">
-            {Array.from({ length: 10 }).map((_, index) => (
+            {Array.from({ length: 8 }).map((_, index) => (
                <ItemCardSkeleton key={`skeleton_${index}`} />
             ))}
          </ul>
