@@ -2,8 +2,8 @@ import { Suspense } from "react"
 import { cookies } from "next/headers"
 
 import ItemList from "./components/itemList"
-import ItemListSkeleton from "../components/ui/skeleton/itemList"
-import CartIcon from "../components/cart/icon"
+import ItemListSkeleton from "@/app/components/ui/skeleton/itemList"
+import CartIcon from "@/app/components/cart/icon"
 
 export default function Home() {
    const cookieStore = cookies()

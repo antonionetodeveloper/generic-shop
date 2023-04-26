@@ -1,4 +1,4 @@
-import ItemCard from "@/app/(home)/components/itemCard"
+import ItemCard from "./itemCard"
 
 const ItemList = async () => {
    const response = await fetch(

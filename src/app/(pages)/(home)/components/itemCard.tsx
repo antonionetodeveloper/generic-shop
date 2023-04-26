@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { ItemCardProps } from "@/types/itemCard"
 import Link from "next/link"
+import { ItemCardProps } from "@/types/itemCard"
 
 const ItemCard = ({ id, title, price, image }: ItemCardProps) => {
    return (
