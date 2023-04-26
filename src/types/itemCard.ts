@@ -1,6 +1,6 @@
 export interface ItemCardProps {
    id?: number
    title: string
-   price: number
+   price?: number
    image: string
 }

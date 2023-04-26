@@ -1,3 +1,4 @@
+import { metadata } from "./../app/layout"
 
 export interface ProductProps {
    params: {
@@ -12,5 +13,8 @@ export interface SingleProductProps {
    description?: string
    image?: string
    category?: string
+   metadata?: {
+      price: string
+   }
    setSearch?: any
 }
