@@ -1,7 +1,7 @@
 "use client"
 
 import { destroyCookie, setCookie } from "nookies"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ButtonCartProps } from "@/types/button"
 import Button from "@/app/components/ui/buttons/genericButton"
 
@@ -12,17 +12,23 @@ const ButtonSection = ({
 }: ButtonCartProps) => {
    const [quantity, setQuantity] = useState(value)
 
-   useEffect(() => {
-      if (quantity < 1) {
-         destroyCookie(null, itemName)
-      }
-      if (quantity > 1) {
-         setCookie(null, itemName, JSON.stringify({ idProduct, quantity }), {
-            maxAge: 30 * 24 * 60 * 60,
-            path: "/",
-         })
-      }
-   }, [quantity, itemName, idProduct])
+   if (quantity < 1) {
+      destroyCookie(null, itemName)
+      console.log("deletado - ", itemName)
+   }
+
+   if (quantity >= 1) {
+      setCookie(null, itemName, JSON.stringify({ idProduct, quantity }), {
+         maxAge: 30 * 24 * 60 * 60,
+         path: "/",
+      })
+   }
+
+   console.log({
+      itemName,
+      idProduct,
+      quantity,
+   })
 
    return (
       <div>

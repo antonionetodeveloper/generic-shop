@@ -1,10 +1,14 @@
-import Link from "next/link"
+"use client"
+
+import { useRouter } from "next/navigation"
 
 const CartIcon = ({ cartCount }: { cartCount: number }) => {
+   const router = useRouter()
+
    return (
       <div className="fixed bottom-0 right-0">
-         <Link href={"/cart"}>
-            <div className="md:hover:bg-slate-200 bg-slate-200 md:bg-transparent rounded-full p-6 m-6 duration-150">
+         <div onClick={() => router.push("/cart")}>
+            <div className="cursor-pointer md:hover:bg-slate-200 bg-slate-200 md:bg-transparent rounded-full p-6 m-6 duration-150">
                <div className="bg-red-400 rounded-full absolute right-0 top-0 m-8 w-8 h-8 flex justify-center items-center">
                   <span className="text-slate-50 text-2xl font-sans font-semibold">
                      {cartCount}
@@ -27,7 +31,7 @@ const CartIcon = ({ cartCount }: { cartCount: number }) => {
                   </svg>
                </div>
             </div>
-         </Link>
+         </div>
       </div>
    )
 }
