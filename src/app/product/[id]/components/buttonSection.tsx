@@ -23,6 +23,7 @@ const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
          path: "/",
       })
       setAlreadyInCart(true)
+      // redirect to cart page
    }
 
    return (
