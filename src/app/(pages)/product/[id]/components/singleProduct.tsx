@@ -28,7 +28,7 @@ const SingleProduct = async ({ id }: { id: string }) => {
             <div>
                <h2 className="text-4xl text-center">{product.name}</h2>
                <p className="font-sans font-bold text-center">
-                  R$ {product.metadata?.price}.00
+                  R$ {product.metadata?.price},00
                </p>
             </div>
             <div className="flex flex-col items-center gap-5">
