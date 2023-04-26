@@ -1,11 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { parseCookies, setCookie } from "nookies"
+
 import { ButtonSectionPros } from "@/types/button"
 import Button from "@/app/components/ui/buttons/genericButton"
 
 const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
+   const router = useRouter()
    const [alreadyInCart, setAlreadyInCart] = useState<boolean>()
 
    useEffect(() => {
@@ -22,8 +25,7 @@ const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
          maxAge: 24 * 60 * 60, // 1 day
          path: "/",
       })
-      setAlreadyInCart(true)
-      // redirect to cart page
+      router.push("/cart")
    }
 
    return (
@@ -32,7 +34,12 @@ const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
             Comprar Agora
          </Button>
          {alreadyInCart ? (
-            <Button variant="success" onClick={() => {}}>
+            <Button
+               variant="success"
+               onClick={() => {
+                  router.push("/cart")
+               }}
+            >
                Adicionado ao carrinho!
             </Button>
          ) : (
