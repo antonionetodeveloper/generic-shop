@@ -32,7 +32,11 @@ const SingleProduct = async ({ id }: { id: string }) => {
                </p>
             </div>
             <div className="flex flex-col items-center gap-5">
-               <ButtonSection idProduct={id} productName={product.name} />
+               <ButtonSection
+                  idProduct={id}
+                  productName={product.name}
+                  price={product.metadata?.price}
+               />
                <p className="text-justify md:w-2/4 md:p-0 p-5">
                   {product.description}
                </p>

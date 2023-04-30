@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { ProductCartProps } from "@/types/product"
-import ButtonSection from "./client/buttonSetion"
+import ButtonSection from "./client/buttonSection"
 
 const SingleItem = async ({
    id,
@@ -38,6 +38,7 @@ const SingleItem = async ({
             idProduct={product.id}
             itemName={product.name}
             quantity={quantity}
+            price={parseInt(product.metadata?.price)}
          />
       </div>
    )

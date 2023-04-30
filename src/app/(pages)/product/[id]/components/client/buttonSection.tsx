@@ -7,7 +7,7 @@ import { parseCookies, setCookie } from "nookies"
 import { ButtonSectionPros } from "@/types/button"
 import Button from "@/app/components/ui/buttons/genericButton"
 
-const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
+const ButtonSection = ({ idProduct, productName, price }: ButtonSectionPros) => {
    const router = useRouter()
    const [alreadyInCart, setAlreadyInCart] = useState<boolean>()
 
@@ -27,6 +27,7 @@ const ButtonSection = ({ idProduct, productName }: ButtonSectionPros) => {
          JSON.stringify({
             idProduct,
             quantity: 1,
+            price
          }),
          {
             maxAge: 24 * 60 * 60, // 1 day

@@ -9,10 +9,12 @@ export interface ButtonProps {
 export interface ButtonSectionPros {
    idProduct: string
    productName: string
+   price: number
 }
 
 export interface ButtonCartProps {
    idProduct: string
    itemName: string
    quantity: number
+   price: number
 }
