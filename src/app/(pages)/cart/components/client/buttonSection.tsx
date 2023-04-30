@@ -9,6 +9,7 @@ const ButtonSection = ({
    itemName,
    idProduct,
    quantity: value,
+   price,
 }: ButtonCartProps) => {
    const [quantity, setQuantity] = useState(value)
 
@@ -17,10 +18,15 @@ const ButtonSection = ({
    }
 
    if (quantity >= 1) {
-      setCookie(null, itemName, JSON.stringify({ idProduct, quantity }), {
-         maxAge: 30 * 24 * 60 * 60,
-         path: "/",
-      })
+      setCookie(
+         null,
+         itemName,
+         JSON.stringify({ idProduct, quantity, price }),
+         {
+            maxAge: 30 * 24 * 60 * 60,
+            path: "/",
+         }
+      )
    }
 
    return (
