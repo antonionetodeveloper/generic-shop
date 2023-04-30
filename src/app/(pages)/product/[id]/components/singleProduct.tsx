@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import ButtonSection from "./buttonSection"
+import ButtonSection from "./client/buttonSection"
 
 const SingleProduct = async ({ id }: { id: string }) => {
    const response = await fetch(`https://api.stripe.com/v1/products/${id}`, {

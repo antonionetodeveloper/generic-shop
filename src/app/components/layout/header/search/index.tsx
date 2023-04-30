@@ -1,4 +1,4 @@
-import Input from "./input"
+import Input from "../client/input"
 
 const Search = async () => {
    const response = await fetch(

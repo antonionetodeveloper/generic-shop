@@ -1,6 +1,6 @@
 import Search from "./search"
 import Logo from "./logo"
-import BackButton from "./backButton"
+import BackButton from "./client/backButton"
 
 export default function Header() {
    return (

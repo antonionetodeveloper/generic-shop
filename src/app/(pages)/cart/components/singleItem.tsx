@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { ProductCartProps } from "@/types/product"
-import ButtonSection from "./buttonSetion"
+import ButtonSection from "./client/buttonSetion"
 
 const SingleItem = async ({
    id,
@@ -29,7 +29,9 @@ const SingleItem = async ({
             />
             <div className="flex flex-col justify-center ml-2 md:ml-6">
                <h4 className="text-lg md:text-2xl">{product.name}</h4>
-               <p className="font-sans font-semibold">R$ {product.metadata?.price},00</p>
+               <p className="font-sans font-semibold">
+                  R$ {product.metadata?.price},00
+               </p>
             </div>
          </div>
          <ButtonSection
