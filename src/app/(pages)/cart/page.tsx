@@ -9,6 +9,9 @@ export default function Cart() {
    return (
       <>
          <ItemList list={parsedItems} />
+         <span className="flex justify-center p-4">
+            Sessão de compra em desenvolvimento.
+         </span>
       </>
    )
 }

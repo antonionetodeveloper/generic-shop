@@ -43,9 +43,9 @@ const ButtonSection = (props: ButtonSectionPros) => {
 
    return (
       <div className="flex md:flex-row flex-col md:gap-2 gap-5">
-         <Button variant="primary" onClick={() => {}}>
+         {/* <Button variant="primary" onClick={() => {}}>
             Comprar Agora
-         </Button>
+         </Button> */}
          {alreadyInCart ? (
             <Button
                variant="success"
@@ -56,7 +56,7 @@ const ButtonSection = (props: ButtonSectionPros) => {
                Adicionado ao carrinho!
             </Button>
          ) : (
-            <Button variant="secondary" onClick={handleAddToCart}>
+            <Button variant="primary" onClick={handleAddToCart}>
                Adicionar ao carrinho
             </Button>
          )}
