@@ -2,13 +2,12 @@ import Image from "next/image"
 import { ProductCartProps } from "@/types/product"
 import ButtonSection from "./client/buttonSection"
 
-const SingleItem = async ({
-   id,
-   quantity,
-}: {
+interface SingleItemProps {
    id: string
    quantity: number
-}) => {
+}
+
+const SingleItem = async ({ id, quantity }: SingleItemProps) => {
    const response = await fetch(`https://api.stripe.com/v1/products/${id}`, {
       headers: {
          Authorization: `Bearer ${process.env.STRIPE_API_KEY}`,

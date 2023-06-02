@@ -1,18 +1,22 @@
 import SingleItem from "./singleItem"
 
-const ItemList = ({ list }: { list: Array<object> }) => {
+interface ItemListProps {
+   list: Array<{ idProduct: string; quantity: string }>
+}
+
+const ItemList = ({ list }: ItemListProps) => {
+   console.log(list)
+
    return (
       <>
          <ul>
-            {list.map((item: any) => {
-               const product = JSON.parse(item.value)
+            {list.map((item) => {
+               const { idProduct, quantity } = item
+
                return (
                   <>
                      {/* @ts-expect-error - Async Component */}
-                     <SingleItem
-                        id={product.idProduct}
-                        quantity={parseInt(product.quantity)}
-                     />
+                     <SingleItem id={idProduct} quantity={parseInt(quantity)} />
                   </>
                )
             })}

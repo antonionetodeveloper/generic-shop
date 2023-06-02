@@ -17,7 +17,7 @@ const Input = ({ products }: InputProps) => {
    return (
       <div>
          <input
-            className="flex relative w-full bg-white pl-12 p-2 rounded-xl duration-150 focus:outline-none focus:shadow-md"
+            className="flex relative w-full bg-white pl-12 p-2 rounded-xl duration-150 focus:outline-none focus:shadow-md shadow-md md:shadow-none "
             placeholder="Digite o nome do produto ..."
             onChange={(event) => setSearch(event.target.value)}
             value={search}

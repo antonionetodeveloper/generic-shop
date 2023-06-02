@@ -1,14 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { parseCookies, setCookie } from "nookies"
 
 import { ButtonSectionPros } from "@/types/button"
 import Button from "@/app/components/ui/buttons/genericButton"
 
-const ButtonSection = ({ idProduct, productName, price }: ButtonSectionPros) => {
+const ButtonSection = (props: ButtonSectionPros) => {
+   const { idProduct, productName, price } = props
+
    const router = useRouter()
+   const cookies = parseCookies()
+
    const [alreadyInCart, setAlreadyInCart] = useState<boolean>()
 
    useEffect(() => {
@@ -20,22 +24,22 @@ const ButtonSection = ({ idProduct, productName, price }: ButtonSectionPros) => 
       }
    }, [productName])
 
-   const handleAddToCart = () => {
-      setCookie(
-         null,
-         productName,
-         JSON.stringify({
-            idProduct,
-            quantity: 1,
-            price
-         }),
-         {
-            maxAge: 24 * 60 * 60, // 1 day
-            path: "/",
-         }
-      )
+   const handleAddToCart = useCallback(() => {
+      const cart = cookies["cart"] ? JSON.parse(cookies["cart"]) : []
+      const content = {
+         idProduct,
+         quantity: 1,
+         price,
+      }
+      cart.push(content)
+
+      setCookie(null, "cart", JSON.stringify(cart), {
+         maxAge: 7 * 24 * 60 * 60, // 1 week
+         path: "/",
+      })
+
       router.push("/cart")
-   }
+   }, [cookies, idProduct, price, router])
 
    return (
       <div className="flex md:flex-row flex-col md:gap-2 gap-5">

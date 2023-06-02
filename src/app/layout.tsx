@@ -2,6 +2,7 @@ import "@/styles/globals.css"
 
 import { Archivo_Black } from "next/font/google"
 import { Crete_Round } from "next/font/google"
+
 import Header from "./components/layout/header"
 
 const Titles = Archivo_Black({

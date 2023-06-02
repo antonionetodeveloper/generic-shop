@@ -1,32 +1,43 @@
 "use client"
 
-import { destroyCookie, setCookie } from "nookies"
+import { destroyCookie, parseCookies, setCookie } from "nookies"
 import { useState } from "react"
 import { ButtonCartProps } from "@/types/button"
 import Button from "@/app/components/ui/buttons/genericButton"
 
-const ButtonSection = ({
-   itemName,
-   idProduct,
-   quantity: value,
-   price,
-}: ButtonCartProps) => {
+const ButtonSection = (props: ButtonCartProps) => {
+   const { itemName, idProduct, quantity: value, price } = props
    const [quantity, setQuantity] = useState(value)
 
+   // bug: sempre que altera o valor de itens, ele quebra aqui. 
+   const cookies = parseCookies()
+   const parsedCookies = JSON.parse(cookies["cart"])
+
    if (quantity < 1) {
-      destroyCookie(null, itemName)
+      const newCookiesList = parsedCookies.filter(
+         (item: { idProduct: string }) => item?.idProduct !== idProduct
+      )
+
+      setCookie(null, "cart", JSON.stringify(newCookiesList), {
+         maxAge: 30 * 24 * 60 * 60,
+         path: "/",
+      })
    }
 
    if (quantity >= 1) {
-      setCookie(
-         null,
-         itemName,
-         JSON.stringify({ idProduct, quantity, price }),
-         {
-            maxAge: 30 * 24 * 60 * 60,
-            path: "/",
+      const newCookiesList = parsedCookies?.map(
+         (item: { idProduct: string }) => {
+            if (item?.idProduct === idProduct) {
+               return { ...item, quantity }
+            }
+            return item
          }
       )
+
+      setCookie(null, "cart", JSON.stringify(newCookiesList), {
+         maxAge: 30 * 24 * 60 * 60,
+         path: "/",
+      })
    }
 
    return (

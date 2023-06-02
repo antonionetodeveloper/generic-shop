@@ -9,13 +9,19 @@ export default function Home() {
    const cookieStore = cookies()
    const allItems = cookieStore.getAll()
 
+   const cart = cookieStore.get("cart") || { value: "[]" }
+   const parsedCart = JSON.parse(cart.value)
+   const cartCount = parsedCart.length
+
    return (
       <>
          <Suspense fallback={<ItemListSkeleton />}>
             {/* @ts-expect-error - Async Component*/}
             <ItemList />
          </Suspense>
-         {allItems.length > 0 && <CartIcon cartCount={allItems.length} />}
+         <div>
+            {cartCount > 0 && <CartIcon cartCount={String(cartCount)} />}
+         </div>
       </>
    )
 }

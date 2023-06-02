@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 
-const CartIcon = ({ cartCount }: { cartCount: number }) => {
+const CartIcon = ({ cartCount }: { cartCount: string }) => {
    const router = useRouter()
 
    return (

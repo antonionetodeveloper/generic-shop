@@ -22,6 +22,8 @@ const SingleProduct = async ({ id }: { id: string }) => {
             style={{
                height: "60vh",
                objectFit: "cover",
+               display: "flex",
+               margin: "auto",
             }}
          />
          <div className="flex flex-col justify-center gap-10 md:w-4/5">
